@@ -82,8 +82,8 @@ if __name__ == '__main__':
     tupla_arq = (ident, caminho, nome_arquivo)
     cam_arq.append(tupla_arq)
     
-    remet = 'jefferson@proxpect.com.br' #Quem envia o arquivo
-    psw = 'ztvelacfuwkdkvjz' # Senha de app que você pode criar no gmail e usar pra enviar o e-mail pelo python
+    remet = '' #Quem envia o arquivo
+    psw = '' # Senha de app que você pode criar no gmail e usar pra enviar o e-mail pelo python
     assunto = 'TESTE ENVIO MAIS DE UM ARQUIVO' # Assunto do e-mail
     #Corpo do E-mail
     corpo_email = 'Olá, este email esta sendo enviado de forma automática e com <b>HTML</b> no corpo do email<p><b>SACOU?</b></p>' 
