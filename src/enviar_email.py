@@ -61,41 +61,44 @@ def enviar_email(assunto, destinatario,corpo_email, remetente, psw, arq = [], ho
 def verificar_email(email):
     r = re.compile(r'^[\w-]+@(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}$')
     email = r.match(email)
-    return email
+    return True
 
 
 if __name__ == '__main__':
     # lista de destinatários
-    destinatarios = ['teste.suporte.prox@gmail.com','277353.git@gmail.com']
+    destinatarios = ['mail@mail.com','mail@gmail.com']
     #Lista com o identificador dos arquivos e o caminho dele no sistema
     cam_arq = []
     # Para anexar documentos
     nome_arquivo = 'teste1.pdf' # define um nome do arquivo tem que ter o tipo pra ser definido também na hora do envio do e-mail
-    caminho = pb.Path(f'..\Docs\{nome_arquivo}') #le o caminho
+    caminho = pb.Path(r'C:\Docs\teste1.pdf') #le o caminho
     ident = 'prox' #identifica pra qual  email você quer enviar, pode ser o nome ou o servidor, você quem define esse filtro
     tupla_arq = (ident, caminho, nome_arquivo) # cria uma tupla pra depois anexar 
-    cam_arq.append(tupla_arq) #adiciona a 
+    cam_arq.append(tupla_arq) #adiciona a tupla na lista que vai ser enviada
 
     nome_arquivo = 'teste2.pdf'
-    caminho = pb.Path(f'..\Docs\{nome_arquivo}')
+    caminho = pb.Path(r'C:\Docs\teste2.pdf')
     ident = 'git'
     tupla_arq = (ident, caminho, nome_arquivo)
     cam_arq.append(tupla_arq)
     
-    remet = '' #e-mail de quem envia o arquivo
+    remet = 'email@mail.com' #Quem envia o arquivo
     psw = '' # Senha de app que você pode criar no gmail e usar pra enviar o e-mail pelo python
-    assunto = 'TESTE ENVIO MAIS DE UM ARQUIVO' # Assunto do e-mail
+    assunto = 'Teste' # Assunto do e-mail
     #Corpo do E-mail
     corpo_email = 'Olá, este email esta sendo enviado de forma automática e com <b>HTML</b> no corpo do email<p><b>SACOU?</b></p>' 
     
+    #Verifica se tem arquivos para anexar então faz o looping para envio dos emails.
     if cam_arq:
         for i in destinatarios:
             destinatario = i
-            if verificar_email(destinatario):    
+            if verificar_email(destinatario) == True:    
                 enviar_email(assunto, destinatario, corpo_email, psw =psw, remetente= remet, arq= cam_arq)
+                print('Email enviado!')
     else:
         for i in destinatarios:
             destinatario = i
-            if verificar_email(destinatario):    
+            if verificar_email(destinatario) == True:    
                 enviar_email(assunto, destinatario, corpo_email, psw =psw, remetente= remet)
+                print('Email enviado!')
 
