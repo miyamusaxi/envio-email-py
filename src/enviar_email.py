@@ -66,7 +66,7 @@ def verificar_email(email):
 
 if __name__ == '__main__':
     # lista de destinatários
-    destinatarios = ['mail@mail.com','mail@gmail.com']
+    destinatarios = ['jefferson@proxpect.com.br','teste@gmail.com']
     #Lista com o identificador dos arquivos e o caminho dele no sistema
     cam_arq = []
     # Para anexar documentos
@@ -82,8 +82,8 @@ if __name__ == '__main__':
     tupla_arq = (ident, caminho, nome_arquivo)
     cam_arq.append(tupla_arq)
     
-    remet = 'email@mail.com' #Quem envia o arquivo
-    psw = '' # Senha de app que você pode criar no gmail e usar pra enviar o e-mail pelo python
+    remet = 'jefferson@proxpect.com.br' #Quem envia o arquivo
+    psw = 'yckdqwzlbgclkybn' # Senha de app que você pode criar no gmail e usar pra enviar o e-mail pelo python
     assunto = 'Teste' # Assunto do e-mail
     #Corpo do E-mail
     corpo_email = 'Olá, este email esta sendo enviado de forma automática e com <b>HTML</b> no corpo do email<p><b>SACOU?</b></p>' 
@@ -92,13 +92,13 @@ if __name__ == '__main__':
     if cam_arq:
         for i in destinatarios:
             destinatario = i
-            if verificar_email(destinatario) == True:    
+            if verificar_email(destinatario):    
                 enviar_email(assunto, destinatario, corpo_email, psw =psw, remetente= remet, arq= cam_arq)
-                print('Email enviado!')
+                print('Email enviado!') #vefica se o email foi verificado
     else:
         for i in destinatarios:
             destinatario = i
-            if verificar_email(destinatario) == True:    
+            if verificar_email(destinatario):    
                 enviar_email(assunto, destinatario, corpo_email, psw =psw, remetente= remet)
-                print('Email enviado!')
+                print('Email enviado!') #verifica se o email foi enviado
 

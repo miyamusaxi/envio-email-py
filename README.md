@@ -1,2 +1,3 @@
-# envio-email-py
-Código para envio de e-mail automático para mais de 1 usuário com anexo
+# É um  código em python para envio dos e-mails
+
+Pra conseguir enviar os emails do servidor gmail, você vai precisar de uma senha de app
