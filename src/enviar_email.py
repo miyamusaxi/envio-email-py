@@ -94,7 +94,7 @@ if __name__ == '__main__':
             destinatario = i
             if verificar_email(destinatario):    
                 enviar_email(assunto, destinatario, corpo_email, psw =psw, remetente= remet, arq= cam_arq)
-                print('Email enviado!') #vefica se o email foi verificado
+                print('Email enviado!') #verifica se o email foi enviado
     else:
         for i in destinatarios:
             destinatario = i
